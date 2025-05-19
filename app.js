@@ -1,3 +1,4 @@
+//=========Application Modules========
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -15,7 +16,7 @@ const login=require('./routes/login');
 var app = express();
 // view engine setup
 connectDB();
-//================Middlewares=================
+//==============Middlewares=================
 app.set('view engine', 'jade');
 app.use(cors({
   origin: "http://localhost:5173", // your frontend domain
@@ -26,7 +27,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-//================Routes=================================
+//====================Routes=============================
 app.use('/api', Ai); // Use the Ai router for API requests
 app.use('/prompt',promptroutes)
 app.use('/conversation_id',conid)
